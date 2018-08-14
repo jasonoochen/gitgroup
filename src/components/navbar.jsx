@@ -8,9 +8,7 @@ const Navbar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
-          GitGroup
-        </a>
+        <a className="navbar-item">GitGroup</a>
 
         <a
           role="button"
@@ -22,32 +20,36 @@ const Navbar = () => {
           <span aria-hidden="true" />
           <span aria-hidden="true" />
         </a>
+      </div>
 
-        <div className="navbar-menu">
-          <div className="navbar-start">
-            <a className="navbar-item">Explore</a>
+      <div className="navbar-menu">
+        <div className="navbar-start">
+          <a className="navbar-item">Explore</a>
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link" href="/documentation/overview/start/">
+              <i className="fas fa-user" />
+            </a>
+            <div className="navbar-dropdown is-boxed">
+              <a className="navbar-item">Signed in as XXX</a>
+              <hr className="navbar-divider" />
+              <a className="navbar-item">Your profile</a>
+              <a className="navbar-item">Your projects</a>
+              <hr className="navbar-divider" />
+              <a className="navbar-item">Help</a>
+              <a className="navbar-item">Settings</a>
+              <a className="navbar-item">Log out</a>
+            </div>
           </div>
+        </div>
 
-          <div className="navbar-end">
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link" href="/documentation/overview/start/">
-                Docs
-              </a>
-              <div className="navbar-dropdown is-boxed">
-                <a
-                  className="navbar-item"
-                  href="/documentation/overview/start/"
-                >
-                  Overview
-                </a>
-                <hr className="navbar-divider" />
-                <a
-                  className="navbar-item is-active"
-                  href="https://bulma.io/documentation/components/breadcrumb/"
-                >
-                  Components
-                </a>
-              </div>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <div className="control">
+              <input
+                className="input is-rounded"
+                type="text"
+                placeholder="Search..."
+              />
             </div>
           </div>
         </div>
