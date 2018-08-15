@@ -45,11 +45,16 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="control">
-              <input
-                className="input is-rounded"
-                type="text"
-                placeholder="Search..."
-              />
+              <div className="control has-icons-left">
+                <input
+                  className="input is-rounded"
+                  type="text"
+                  placeholder="Search..."
+                />
+                <span className="icon is-left">
+                  <i className="fas fa-search" aria-hidden="true" />
+                </span>
+              </div>
             </div>
           </div>
         </div>

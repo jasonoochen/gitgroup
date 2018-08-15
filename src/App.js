@@ -11,15 +11,13 @@ class App extends Component {
     return (
       <React.Fragment>
         <Navbar />
-        <section className="section">
-          <div className="container">
-            <Switch>
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/not-found" component={NotFound} />
-              <Redirect from="/" to="/dashboard" />
-              <Redirect to="/not-found" />
-            </Switch>
-          </div>
+        <section className="section is-fluid">
+          <Switch>
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/not-found" component={NotFound} />
+            <Redirect from="/" to="/dashboard" />
+            <Redirect to="/not-found" />
+          </Switch>
         </section>
         <Footer />
       </React.Fragment>
