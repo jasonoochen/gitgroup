@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import SearchBox from "./searchBox";
 
 const Navbar = () => {
   return (
@@ -8,7 +10,14 @@ const Navbar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item">GitGroup</a>
+        <a
+          className="navbar-item"
+          onClick={() => {
+            window.location = "/";
+          }}
+        >
+          GitGroup
+        </a>
 
         <a
           role="button"
@@ -24,7 +33,12 @@ const Navbar = () => {
 
       <div className="navbar-menu">
         <div className="navbar-start">
-          <a className="navbar-item">Explore</a>
+          <Link className="navbar-item" to={"/explore"}>
+            Explore
+          </Link>
+          <Link className="navbar-item" to={"/document"}>
+            Document
+          </Link>
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link" href="/documentation/overview/start/">
               <i className="fas fa-user" />
@@ -44,18 +58,7 @@ const Navbar = () => {
 
         <div className="navbar-end">
           <div className="navbar-item">
-            <div className="control">
-              <div className="control has-icons-left">
-                <input
-                  className="input is-rounded"
-                  type="text"
-                  placeholder="Search..."
-                />
-                <span className="icon is-left">
-                  <i className="fas fa-search" aria-hidden="true" />
-                </span>
-              </div>
-            </div>
+            <SearchBox />
           </div>
         </div>
       </div>
