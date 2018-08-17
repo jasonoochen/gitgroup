@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "./searchBox";
+import GithubSignin from "./githubSignin";
 
 const Navbar = () => {
   return (
@@ -10,14 +11,14 @@ const Navbar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a
-          className="navbar-item"
+        <img
+          className="clickable"
+          src="./images/brand.png"
+          alt="Bulma: a modern CSS framework based on Flexbox"
           onClick={() => {
             window.location = "/";
           }}
-        >
-          GitGroup
-        </a>
+        />
 
         <a
           role="button"
@@ -40,19 +41,24 @@ const Navbar = () => {
             Document
           </Link>
           <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link" href="/documentation/overview/start/">
+            <Link to="/" className="navbar-link">
               <i className="fas fa-user" />
-            </a>
+            </Link>
             <div className="navbar-dropdown is-boxed">
               <a className="navbar-item">Signed in as XXX</a>
               <hr className="navbar-divider" />
-              <a className="navbar-item">Your profile</a>
+              <Link to="/profile" className="navbar-item">
+                Your profile
+              </Link>
               <a className="navbar-item">Your projects</a>
               <hr className="navbar-divider" />
               <a className="navbar-item">Help</a>
               <a className="navbar-item">Settings</a>
               <a className="navbar-item">Log out</a>
             </div>
+          </div>
+          <div className="navbar-item">
+            <GithubSignin />
           </div>
         </div>
 
