@@ -16,6 +16,12 @@ class Navbar extends Component {
     this.setState({ isModalActive });
   };
 
+  handleLogout = () => {
+    localStorage.removeItem("token");
+
+    window.location = "/";
+  };
+
   switchSignInUp = () => {
     let { isLogin } = this.state;
 
@@ -69,32 +75,42 @@ class Navbar extends Component {
             <Link className="navbar-item" to={"/document"}>
               Document
             </Link>
-            <a className="navbar-item" onClick={this.handleModal}>
-              Login/Register
-            </a>
-            <Modal
-              isActive={isModalActive}
-              handleModal={this.handleModal}
-              name={isLogin ? "Login" : "Register"}
-              content={modalContent}
-            />
-            <div className="navbar-item has-dropdown is-hoverable">
-              <Link to="/" className="navbar-link">
-                <i className="fas fa-user" />
-              </Link>
-              <div className="navbar-dropdown is-boxed">
-                <a className="navbar-item">Signed in as XXX</a>
-                <hr className="navbar-divider" />
-                <Link to="/profile" className="navbar-item">
-                  Your profile
+            {!this.props.user && (
+              <React.Fragment>
+                <a className="navbar-item" onClick={this.handleModal}>
+                  Login/Register
+                </a>
+                <Modal
+                  isActive={isModalActive}
+                  handleModal={this.handleModal}
+                  name={isLogin ? "Login" : "Register"}
+                  content={modalContent}
+                />
+              </React.Fragment>
+            )}
+            {this.props.user && (
+              <div className="navbar-item has-dropdown is-hoverable">
+                <Link to="/" className="navbar-link">
+                  <i className="fas fa-user" />
                 </Link>
-                <a className="navbar-item">Your projects</a>
-                <hr className="navbar-divider" />
-                <a className="navbar-item">Help</a>
-                <a className="navbar-item">Settings</a>
-                <a className="navbar-item">Log out</a>
+                <div className="navbar-dropdown is-boxed">
+                  <a className="navbar-item">
+                    Signed in as {this.props.user.name}
+                  </a>
+                  <hr className="navbar-divider" />
+                  <Link to="/profile" className="navbar-item">
+                    Your profile
+                  </Link>
+                  <a className="navbar-item">Your projects</a>
+                  <hr className="navbar-divider" />
+                  <a className="navbar-item">Help</a>
+                  <a className="navbar-item">Settings</a>
+                  <a className="navbar-item" onClick={this.handleLogout}>
+                    Log out
+                  </a>
+                </div>
               </div>
-            </div>
+            )}
             <div className="navbar-item">
               <GithubSignin />
             </div>

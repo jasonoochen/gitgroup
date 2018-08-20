@@ -5,6 +5,6 @@ function log(error) {
 }
 
 export default {
-  int,
+  init,
   log
 };
