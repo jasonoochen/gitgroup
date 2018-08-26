@@ -8,6 +8,7 @@
     "joi": "^13.6.0",
     "joi-password-complexity": "^2.0.1",
     "jwt-decode": "^2.2.0",
+    "query-string": "^6.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",

@@ -6,7 +6,7 @@ class GithubSignin extends Component {
   render() {
     const githubAuthUrl = "https://github.com/login/oauth/authorize";
     const clientId = "e823af2ff3250e3b966f";
-    const scope = "user%20repo";
+    const scope = "user%20repo%20read:org";
     return (
       <i
         className="fab fa-github fa-lg clickable"
