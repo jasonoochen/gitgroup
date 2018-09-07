@@ -1,3 +1,37 @@
+# GitGroup
+Author: Runbo(Chuck) Zhao
+
+## Introduction
+
+### Git and GitHub
+If you are a web develper, you must be familiar with the git - a version control system for tracking changes in computer files and coordinating work on those files among multiple people, and github - a web-based hosting service for version control using git.
+You almost can use it to do anything when your team develop a software, such as bug tracking, feature requests, task management, and wikis.
+
+### GitHub OAuth Apps and GitHub GraphQL API v4
+OAuth2 is a protocol that lets external applications request authorization to private details in a user's GitHub account without accessing their password. This is preferred over Basic Authentication because tokens can be limited to specific types of data and can be revoked by users at any time.
+An OAuth App uses GitHub as an identity provider to authenticate as the user who grants access to the app. This means when a user grants an OAuth App access, they grant permissions to all repositories they have access to in their account, and also to any organizations they belong to that haven't blocked third-party access.
+## What is the app idea?
+Although GitHub is very famous among the programmers and develpers. But there are also some disadvantages. One of them is that Git and GitHub have a high entrance standard. So my idea is to make GitGroup more easy to use by person who has little development experience, such as product manager. And Also the whole team can use it to do the online meeting, task scheduling and so on.
+## What it does, for whom, and why
+GitGroup is designed for all people in the product development team, even for those people haven't computer engineering knowledge like product manager.
+The functionality of GitGroup includes:<br>
+1. Online meeting;
+2. Task management;
+## What makes it special
+Easy to use. Make the whole process of developement more efficient and also improve the communication between product manager, designer and developer.
+## What is the target market?
+1. Software developer;
+2. Product manager;
+
+## What problems am I solving for my users?
+## What channels will I use to reach customers?
+I will use indirect marketing channels to reach customers because this online parking marketplace focuses largely on channels where there is no direct communication with customers. Instead, this application only connects the driver with the owner like it is the middleman facilitates interaction between parties. Therefore, it creates awareness for my application. This parking marketplace app will earn from ads and promoted listings, and because of widespread use of social media, there are numerous choices for indirect marketing that I will make: 
+Social Media: Facebook, Twitter, LinkedIn, Pinterest, Tumblr 
+Network ads: Google’s AdSense ads 
+Press coverage: Public relations campaigns. 
+## What could possibly be te future of this app?
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
