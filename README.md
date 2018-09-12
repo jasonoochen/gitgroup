@@ -15,22 +15,42 @@ Although GitHub is very famous among the programmers and develpers. But there ar
 ## What it does, for whom, and why
 GitGroup is designed for all people in the product development team, even for those people haven't computer engineering knowledge like product manager.
 The functionality of GitGroup includes:<br>
-1. Online meeting;
-2. Task management;
+1. Online meeting;<br>
+Online meeting group chat.
+Record the conference. 
+Make conference scheduling form and alarming the comming meeting.
+
+
+2. Task management;<br>
+Like GitHub task management, but has better UI design.
+Make TODO list;
+Create an issue to suggest a new idea or track a bug. Then organize and assign tasks to your team.
+
+3. Developer grading system;<br>
+Record the working of any team member. 
+According the performance of users in all team which he joined, get users a grade;
+
+4. Developer finding system;<br>
+If you are a team leader, you can find a perfect developer who has related skill to your project.
+If you are a software developer, you can post your information to find suitable project for you.
+
 ## What makes it special
 Easy to use. Make the whole process of developement more efficient and also improve the communication between product manager, designer and developer.
 ## What is the target market?
 1. Software developer;
 2. Product manager;
+3. Startup company;
 
 ## What problems am I solving for my users?
+Accept some good idea of Github and improve the user experience by the GitHub api and our own service.
+It is a easy way to let manager and other people without development experience participate in the process of the software developement.
+Real-time system let users' communication efficiently.
 ## What channels will I use to reach customers?
-I will use indirect marketing channels to reach customers because this online parking marketplace focuses largely on channels where there is no direct communication with customers. Instead, this application only connects the driver with the owner like it is the middleman facilitates interaction between parties. Therefore, it creates awareness for my application. This parking marketplace app will earn from ads and promoted listings, and because of widespread use of social media, there are numerous choices for indirect marketing that I will make: 
+Because our target is software developer, product manager and some startup company. They are all in the new information industry and their age is between 20 and 40, We will use the new media, such as socia media, tech website, mobile app, online podcast. I will make: 
 Social Media: Facebook, Twitter, LinkedIn, Pinterest, Tumblr 
 Network ads: Google’s AdSense ads 
-Press coverage: Public relations campaigns. 
 ## What could possibly be te future of this app?
-
+Focus on the user experience in the process of project development. Improve the developer recommendation system algorithm. Include all the features of GitHub and develop our own version control system and task management system based on our idea and logic to make developement easy.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
