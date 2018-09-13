@@ -7,6 +7,8 @@ import registerServiceWorker from "./registerServiceWorker";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "bulma/css/bulma.css";
 
+console.log(process.env);
+
 ReactDOM.render(
   <BrowserRouter>
     <App />

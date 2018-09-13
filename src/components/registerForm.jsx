@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "./common/form";
 import { register } from "./../services/userService";
-const Joi = require("joi");
+const Joi = require("joi-browser");
 
 class RegisterForm extends Form {
   state = {

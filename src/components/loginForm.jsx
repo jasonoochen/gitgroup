@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "./common/form";
 import { login } from "./../services/authService";
-import Joi from "joi";
+import Joi from "joi-browser";
 
 class LoginForm extends Form {
   state = {
