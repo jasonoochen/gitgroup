@@ -111,11 +111,9 @@ class Navbar extends Component {
                 </div>
               </div>
             )}
-            {this.props.user && (
-              <div className="navbar-item">
-                <GithubSignin />
-              </div>
-            )}
+            <div className="navbar-item">
+              <GithubSignin handleAuth={this.props.handleAuth} />
+            </div>
           </div>
 
           <div className="navbar-end">

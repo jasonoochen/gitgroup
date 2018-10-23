@@ -1,19 +1,18 @@
 import React, { Component } from "react";
+import { Auth } from "../services/authService";
 
 class GithubSignin extends Component {
   state = {};
 
+  handleAuth = async () => {
+    const auth = new Auth();
+    const page = await auth.githubAuth();
+    this.props.handleAuth(page.data);
+  };
+
   render() {
-    const githubAuthUrl = "https://github.com/login/oauth/authorize";
-    const clientId = "e823af2ff3250e3b966f";
-    const scope = "user%20repo%20read:org";
     return (
-      <i
-        className="fab fa-github fa-lg clickable"
-        onClick={() => {
-          window.location = `${githubAuthUrl}?client_id=${clientId}&scope=${scope}`;
-        }}
-      />
+      <i onClick={this.handleAuth} className="fab fa-github fa-lg clickable" />
     );
   }
 }

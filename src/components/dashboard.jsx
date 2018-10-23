@@ -7,14 +7,14 @@ class Dashboard extends Component {
   state = {};
 
   async componentDidMount() {
-    try {
-      const querys = queryString.parse(this.props.location.search);
-      const gitHubAccessToken = querys.access_token;
-      const viewer = await getViewer(gitHubAccessToken);
-      console.log(viewer);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const querys = queryString.parse(this.props.location.search);
+    //   const gitHubAccessToken = querys.access_token;
+    //   const viewer = await getViewer(gitHubAccessToken);
+    //   console.log(viewer);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }
 
   render() {

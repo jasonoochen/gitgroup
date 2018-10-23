@@ -5,6 +5,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bulma": "^0.7.1",
+    "config": "^2.0.1",
+    "html-react-parser": "^0.4.7",
     "joi-browser": "^13.4.0",
     "joi-password-complexity": "^2.0.1",
     "jwt-decode": "^2.2.0",
