@@ -10,17 +10,3 @@ export function createAxiosGitHub(accessToken) {
 
   return axiosGitHubGraphQL;
 }
-
-export async function getViewer(accessToken) {
-  const GET_ORGANIZATION = `
-  {
-    viewer {
-      name
-    }
-  }
-`;
-  const result = await createAxiosGitHub(accessToken).post("", {
-    query: GET_ORGANIZATION
-  });
-  return result;
-}

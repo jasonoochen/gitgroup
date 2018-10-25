@@ -18,8 +18,7 @@ export class Auth {
     });
   }
 
-  async githubAuth() {
-    const page = await this.authApi.get("/user/auth");
-    return page;
+  githubAuth() {
+    this.authApi.get("/user/auth");
   }
 }

@@ -1,48 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "./searchBox";
-import GithubSignin from "./githubSignin";
-import Modal from "./modal";
-import RegisterForm from "./registerForm";
-import LoginForm from "./loginForm";
+import GithubAuth from "./githubAuth";
 
 class Navbar extends Component {
-  state = { isModalActive: false, isLogin: false };
-
-  handleModal = () => {
-    let { isModalActive } = this.state;
-
-    isModalActive = !isModalActive;
-    this.setState({ isModalActive });
-  };
-
-  handleLogout = () => {
-    localStorage.removeItem("token");
-
-    window.location = "/";
-  };
-
-  switchSignInUp = () => {
-    let { isLogin } = this.state;
-
-    isLogin = !isLogin;
-    this.setState({ isLogin });
-  };
+  state = {};
 
   render() {
-    const { isModalActive, isLogin } = this.state;
-    const modalContent = (
-      <React.Fragment>
-        {!isLogin && <RegisterForm />}
-        {isLogin && <LoginForm />}
-        <a onClick={this.switchSignInUp}>
-          {isLogin
-            ? "I don't have an account, click here to register."
-            : "I already have an account, click here to login."}
-        </a>
-      </React.Fragment>
-    );
-
+    const { user } = this.props;
     return (
       <nav className="navbar is-dark" aria-label="main navigation">
         <div className="navbar-brand">
@@ -69,26 +34,12 @@ class Navbar extends Component {
 
         <div className="navbar-menu">
           <div className="navbar-start">
-            <Link className="navbar-item" to={"/explore"}>
-              Explore
-            </Link>
-            <Link className="navbar-item" to={"/document"}>
-              Document
-            </Link>
-            {!this.props.user && (
-              <React.Fragment>
-                <a className="navbar-item" onClick={this.handleModal}>
-                  Login/Register
-                </a>
-                <Modal
-                  isActive={isModalActive}
-                  handleModal={this.handleModal}
-                  name={isLogin ? "Login" : "Register"}
-                  content={modalContent}
-                />
-              </React.Fragment>
+            {!user && (
+              <div className="navbar-item">
+                <GithubAuth />
+              </div>
             )}
-            {this.props.user && (
+            {user && (
               <div className="navbar-item has-dropdown is-hoverable">
                 <Link to="/" className="navbar-link">
                   <i className="fas fa-user" />
@@ -111,9 +62,6 @@ class Navbar extends Component {
                 </div>
               </div>
             )}
-            <div className="navbar-item">
-              <GithubSignin handleAuth={this.props.handleAuth} />
-            </div>
           </div>
 
           <div className="navbar-end">
@@ -128,3 +76,35 @@ class Navbar extends Component {
 }
 
 export default Navbar;
+
+// handleModal = () => {
+//   let { isModalActive } = this.state;
+
+//   isModalActive = !isModalActive;
+//   this.setState({ isModalActive });
+// };
+
+// handleLogout = () => {
+//   localStorage.removeItem("token");
+
+//   window.location = "/";
+// };
+
+// switchSignInUp = () => {
+//   let { isLogin } = this.state;
+
+//   isLogin = !isLogin;
+//   this.setState({ isLogin });
+// };
+
+// const modalContent = (
+//   <React.Fragment>
+//     {!isLogin && <RegisterForm />}
+//     {isLogin && <LoginForm />}
+//     <a onClick={this.switchSignInUp}>
+//       {isLogin
+//         ? "I don't have an account, click here to register."
+//         : "I already have an account, click here to login."}
+//     </a>
+//   </React.Fragment>
+// );
