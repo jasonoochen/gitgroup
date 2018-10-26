@@ -9,7 +9,10 @@ export class UserService {
 
   constructor() {
     this.userHttp = http.create({
-      baseURL: backendApi
+      baseURL: backendApi,
+      headers: {
+        Authorization: localStorage.getItem("access_token")
+      }
     });
   }
 

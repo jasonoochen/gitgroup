@@ -17,6 +17,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    this.setState({ user: null });
     const search = this.props.location.search;
     const params = new URLSearchParams(search);
     const access_token = params.get("access_token");

@@ -6,6 +6,12 @@ import GithubAuth from "./githubAuth";
 class Navbar extends Component {
   state = {};
 
+  handleLogout = () => {
+    localStorage.removeItem("access_token");
+
+    window.location = "/";
+  };
+
   render() {
     const { user } = this.props;
     return (
@@ -82,12 +88,6 @@ export default Navbar;
 
 //   isModalActive = !isModalActive;
 //   this.setState({ isModalActive });
-// };
-
-// handleLogout = () => {
-//   localStorage.removeItem("token");
-
-//   window.location = "/";
 // };
 
 // switchSignInUp = () => {
