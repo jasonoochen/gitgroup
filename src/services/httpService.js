@@ -16,6 +16,10 @@ axios.interceptors.response.use(null, error => {
   return Promise.reject(error);
 });
 
+axios.defaults.headers.common["Authorization"] = localStorage.getItem(
+  "access_token"
+);
+
 export default {
   get: axios.get,
   post: axios.post,

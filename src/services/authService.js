@@ -18,7 +18,9 @@ export class Auth {
     });
   }
 
-  githubAuth() {
-    this.authApi.get("/user/auth");
+  async githubAuth() {
+    const auth = await this.authApi.get("/user/auth");
+    console.log(auth);
+    window.location = auth.data;
   }
 }

@@ -8,18 +8,24 @@ import NotFound from "./components/notFound";
 import SearchPage from "./components/searchPage";
 import Profile from "./components/profile";
 import "./App.css";
+import { UserService } from "./services/userService";
 
 class App extends Component {
   state = {
-    authorizationPage: null
+    authorizationPage: null,
+    user: null
   };
 
   componentDidMount() {
-    try {
-      const jwt = localStorage.getItem("token");
-      const user = jwtDecode(jwt);
+    const search = this.props.location.search;
+    const params = new URLSearchParams(search);
+    const access_token = params.get("access_token");
+    if (access_token) localStorage.setItem("access_token", access_token);
+
+    const userService = new UserService();
+    userService.getUser().then(user => {
       this.setState({ user });
-    } catch (error) {}
+    });
   }
 
   render() {
@@ -28,6 +34,7 @@ class App extends Component {
         <Navbar user={this.state.user} />
         <section className="section is-fluid">
           <Switch>
+            <Route path="/" component={NotFound} />
             <Route path="/not-found" component={NotFound} />
             <Route path="/search-page" component={SearchPage} />
             <Route path="/profile" component={Profile} />
