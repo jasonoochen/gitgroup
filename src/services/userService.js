@@ -1,12 +1,33 @@
 import http from "./httpService";
-import { gitgroupBackendApi } from "../config.json";
+import { backendApi } from "../config.json";
+import { User } from "./../models/userModel";
 
-const api = gitgroupBackendApi + "/api/users";
+export class UserService {
+  userHttp;
+  name;
+  id;
 
-export function register(user) {
-  return http.post(api, {
-    email: user.email,
-    name: user.name,
-    password: user.password
-  });
+  constructor() {
+    this.userHttp = http.create({
+      baseURL: backendApi,
+      headers: {
+        Authorization: localStorage.getItem("access_token")
+      }
+    });
+  }
+
+  async getUser() {
+    const response = await this.userHttp.get("/user");
+    const data = response.data;
+    const user = new User(data.id, data.name);
+    return user;
+  }
 }
+
+// export function register(user) {
+//   return http.post(api, {
+//     email: user.email,
+//     name: user.name,
+//     password: user.password
+//   });
+// }
