@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import jwtDecode from "jwt-decode";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import NotFound from "./components/notFound";
 import SearchPage from "./components/searchPage";
 import Profile from "./components/profile";
+import Overview from "./components/overview";
 import "./App.css";
 import { UserService } from "./services/userService";
+import Tabs from "./components/tabs";
+import ToolBar from "./components/toolBar";
 
 class App extends Component {
   state = {
@@ -33,9 +35,14 @@ class App extends Component {
     return (
       <React.Fragment>
         <Navbar user={this.state.user} />
-        <section className="section is-fluid">
+        <Tabs />
+        <ToolBar />
+        <section className="section is-fluid is-paddingless">
           <Switch>
-            <Route path="/" component={NotFound} />
+            <Route
+              path="/"
+              render={() => <Overview user={this.state.user} />}
+            />
             <Route path="/not-found" component={NotFound} />
             <Route path="/search-page" component={SearchPage} />
             <Route path="/profile" component={Profile} />

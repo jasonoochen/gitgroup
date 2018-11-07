@@ -8,7 +8,6 @@
     "html-react-parser": "^0.4.7",
     "joi-browser": "^13.4.0",
     "joi-password-complexity": "^2.0.1",
-    "jwt-decode": "^2.2.0",
     "query-string": "^6.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

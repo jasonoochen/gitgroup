@@ -51,9 +51,7 @@ class Navbar extends Component {
                   <i className="fas fa-user" />
                 </Link>
                 <div className="navbar-dropdown is-boxed">
-                  <a className="navbar-item">
-                    Signed in as {this.props.user.name}
-                  </a>
+                  <a className="navbar-item">Signed in as {user.name}</a>
                   <hr className="navbar-divider" />
                   <Link to="/profile" className="navbar-item">
                     Your profile
