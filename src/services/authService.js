@@ -20,7 +20,6 @@ export class Auth {
 
   async githubAuth() {
     const auth = await this.authApi.get("/user/auth");
-    console.log(auth);
     window.location = auth.data;
   }
 }

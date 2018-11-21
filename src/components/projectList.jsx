@@ -8,7 +8,7 @@ class ProjectList extends Component {
   search = () => {};
 
   render() {
-    const { user } = this.props;
+    const { user, openNewProjectModal } = this.props;
     return (
       <React.Fragment>
         <nav className="panel">
@@ -35,7 +35,10 @@ class ProjectList extends Component {
               </a>
             ))}
           <div className="panel-block">
-            <button className="button is-link is-outlined is-fullwidth">
+            <button
+              className="button is-link is-outlined is-fullwidth"
+              onClick={openNewProjectModal}
+            >
               New Project
             </button>
           </div>

@@ -6,11 +6,11 @@ import StatusOverview from "./statusOverview";
 class Overview extends Component {
   state = {};
   render() {
-    const { user } = this.props;
+    const { user, openNewProjectModal } = this.props;
     return (
       <div className="columns is-1 is-paddingless">
         <div className="column is-2">
-          <ProjectList user={user} />
+          <ProjectList user={user} openNewProjectModal={openNewProjectModal} />
         </div>
         <div className="column">
           <StatusOverview />
