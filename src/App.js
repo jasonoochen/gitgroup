@@ -20,13 +20,14 @@ class App extends Component {
     newProjectModal: false,
     newProjectFormData: {
       name: "",
-      description: ""
+      description: "",
+      repositories: []
     }
   };
 
-  //--------------------------------------
-  // open the new project modal window
-  //--------------------------------------
+  //-------------------------------------------------
+  // new project: open the new project modal window
+  //-------------------------------------------------
   openNewProjectModal = () => {
     this.setState({ newProjectModal: true });
   };
@@ -35,9 +36,19 @@ class App extends Component {
     this.setState({ newProjectModal: false });
   };
 
-  //---------------------------------------
-  // change the new project form data
-  //---------------------------------------
+  handleCancel = () => {
+    const newProjectFormData = {
+      name: "",
+      description: "",
+      repositories: []
+    };
+    this.setState({ newProjectFormData: newProjectFormData });
+    this.closeNewProjectModal();
+  };
+
+  //---------------------------------------------------------
+  // new project: change the new project form data
+  //---------------------------------------------------------
   handleChange = e => {
     let newProjectFormData = { ...this.state.newProjectFormData };
     newProjectFormData[e.target.name] = e.target.value;
@@ -48,6 +59,23 @@ class App extends Component {
     let projectService = new ProjectService();
     projectService.createNewProject(this.state.newProjectFormData);
     window.location = "/";
+  };
+
+  //----------------------------------------------------------
+  // new project: select repositories and deselect an option
+  //----------------------------------------------------------
+  handleRepositoriesSelect = repository => {
+    let newProjectFormData = { ...this.state.newProjectFormData };
+    if (!newProjectFormData.repositories.includes(repository))
+      newProjectFormData.repositories.push(repository);
+    this.setState({ newProjectFormData: newProjectFormData });
+  };
+  handleRepositoriesDeselect = repository => {
+    let newProjectFormData = { ...this.state.newProjectFormData };
+    newProjectFormData.repositories = newProjectFormData.repositories.filter(
+      r => repository !== r
+    );
+    this.setState({ newProjectFormData: newProjectFormData });
   };
 
   componentDidMount() {
@@ -65,6 +93,7 @@ class App extends Component {
 
   newProjectModal = () => {
     const isActive = this.state.newProjectModal ? "is-active" : "";
+    const { user, newProjectFormData } = this.state;
     return (
       <div className={"modal " + isActive}>
         <div className="modal-background" />
@@ -102,12 +131,66 @@ class App extends Component {
                 />
               </div>
             </div>
+            <div className="columns">
+              <div className="column is-6">
+                <div className="field">
+                  <label className="label">Select Repositories</label>
+                  <div className="control">
+                    <div className="select is-multiple is-fullwidth">
+                      <select multiple size="8">
+                        {user &&
+                          user.repositories.map(repository => {
+                            return (
+                              <option
+                                value={repository.name}
+                                onClick={() =>
+                                  this.handleRepositoriesSelect(repository)
+                                }
+                              >
+                                {repository.name}
+                              </option>
+                            );
+                          })}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="column is-6">
+                <div className="field">
+                  <label className="label">Selected</label>
+                  <div className="control">
+                    <div className="select is-multiple is-fullwidth">
+                      <select multiple size="8">
+                        {newProjectFormData.repositories.length === 0 && (
+                          <option className="has-text-grey-light" value="dummy">
+                            selected repositories...
+                          </option>
+                        )}
+                        {newProjectFormData.repositories.map(repository => {
+                          return (
+                            <option
+                              value={repository.name}
+                              onClick={() =>
+                                this.handleRepositoriesDeselect(repository)
+                              }
+                            >
+                              {repository.name}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
           <footer className="modal-card-foot">
             <button className="button is-success" onClick={this.handleSubmit}>
               Create
             </button>
-            <button className="button" onClick={this.closeNewProjectModal}>
+            <button className="button" onClick={this.handleCancel}>
               Cancel
             </button>
           </footer>
@@ -126,7 +209,7 @@ class App extends Component {
         <section className="section is-fluid is-paddingless">
           <Switch>
             <Route
-              path="/"
+              path="/:project_id"
               render={() => (
                 <Overview
                   user={user}

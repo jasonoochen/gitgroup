@@ -19,7 +19,7 @@ export class UserService {
   async getUser() {
     const response = await this.userHttp.get("/user");
     const data = response.data;
-    const user = new User(data.id, data.name, data.projects);
+    const user = new User(data.id, data.name, data.projects, data.repositories);
     return user;
   }
 }

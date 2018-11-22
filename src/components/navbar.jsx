@@ -80,29 +80,3 @@ class Navbar extends Component {
 }
 
 export default Navbar;
-
-// handleModal = () => {
-//   let { isModalActive } = this.state;
-
-//   isModalActive = !isModalActive;
-//   this.setState({ isModalActive });
-// };
-
-// switchSignInUp = () => {
-//   let { isLogin } = this.state;
-
-//   isLogin = !isLogin;
-//   this.setState({ isLogin });
-// };
-
-// const modalContent = (
-//   <React.Fragment>
-//     {!isLogin && <RegisterForm />}
-//     {isLogin && <LoginForm />}
-//     <a onClick={this.switchSignInUp}>
-//       {isLogin
-//         ? "I don't have an account, click here to register."
-//         : "I already have an account, click here to login."}
-//     </a>
-//   </React.Fragment>
-// );

@@ -17,7 +17,8 @@ export class ProjectService {
   async createNewProject(projectData) {
     await this.projectHttp.post("/new", {
       name: projectData.name,
-      description: projectData.description
+      description: projectData.description,
+      repositories: projectData.repositories
     });
   }
 }
