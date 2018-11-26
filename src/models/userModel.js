@@ -21,7 +21,7 @@ export class User {
     }
     for (let repository of repositories) {
       const repositoryObj = {
-        id: repository.id,
+        repository_id: repository.repository_id,
         name: repository.name,
         owner_id: repository.owner_id,
         description: repository.description,

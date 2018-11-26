@@ -7,6 +7,7 @@ import NotFound from "./components/notFound";
 import SearchPage from "./components/searchPage";
 import Profile from "./components/profile";
 import Overview from "./components/overview";
+import Kanban from "./components/kanban";
 import "./App.css";
 import { UserService } from "./services/userService";
 import { ProjectService } from "./services/projectService";
@@ -209,13 +210,17 @@ class App extends Component {
         <section className="section is-fluid is-paddingless">
           <Switch>
             <Route
-              path="/:project_id"
+              path="/"
               render={() => (
                 <Overview
                   user={user}
                   openNewProjectModal={this.openNewProjectModal}
                 />
               )}
+            />
+            <Route
+              path="/kanban/:project_id"
+              render={() => <Kanban user={user} />}
             />
             <Route path="/not-found" component={NotFound} />
             <Route path="/search-page" component={SearchPage} />
