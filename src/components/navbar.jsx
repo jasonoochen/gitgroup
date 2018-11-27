@@ -19,7 +19,7 @@ class Navbar extends Component {
         <div className="navbar-brand">
           <img
             className="clickable"
-            src="./images/brand.png"
+            src={process.env.PUBLIC_URL + "/images/brand.png"}
             alt="Bulma: a modern CSS framework based on Flexbox"
             onClick={() => {
               window.location = "/";

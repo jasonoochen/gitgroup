@@ -86,8 +86,13 @@ class App extends Component {
     const access_token = params.get("access_token");
     if (access_token) localStorage.setItem("access_token", access_token);
 
+    // get the user from the local storage first
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) this.setState({ user });
+
     const userService = new UserService();
     userService.getUser().then(user => {
+      localStorage.setItem("user", JSON.stringify(user));
       this.setState({ user });
     });
   }
@@ -144,6 +149,7 @@ class App extends Component {
                             return (
                               <option
                                 value={repository.name}
+                                key={repository.name}
                                 onClick={() =>
                                   this.handleRepositoriesSelect(repository)
                                 }
@@ -210,9 +216,11 @@ class App extends Component {
         <section className="section is-fluid is-paddingless">
           <Switch>
             <Route
+              exact
               path="/"
-              render={() => (
+              render={props => (
                 <Overview
+                  {...props}
                   user={user}
                   openNewProjectModal={this.openNewProjectModal}
                 />
@@ -220,7 +228,7 @@ class App extends Component {
             />
             <Route
               path="/kanban/:project_id"
-              render={() => <Kanban user={user} />}
+              render={props => <Kanban {...props} user={user} />}
             />
             <Route path="/not-found" component={NotFound} />
             <Route path="/search-page" component={SearchPage} />
