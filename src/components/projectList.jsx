@@ -7,6 +7,10 @@ class ProjectList extends Component {
 
   search = () => {};
 
+  directToKanban = project => {
+    window.location = `/kanban/${project.id}`;
+  };
+
   render() {
     const { user, openNewProjectModal } = this.props;
     return (
@@ -27,7 +31,11 @@ class ProjectList extends Component {
           </div>
           {user &&
             user.projects.map(project => (
-              <a className="panel-block is-active" key={project.id}>
+              <a
+                className="panel-block is-active"
+                key={project.id}
+                onClick={() => this.directToKanban(project)}
+              >
                 <span className="panel-icon">
                   <i className="fas fa-project-diagram" aria-hidden="true" />
                 </span>

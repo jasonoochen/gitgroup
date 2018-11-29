@@ -8,6 +8,7 @@ class Navbar extends Component {
 
   handleLogout = () => {
     localStorage.removeItem("access_token");
+    localStorage.removeItem("user");
 
     window.location = "/";
   };

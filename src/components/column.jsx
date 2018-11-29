@@ -7,6 +7,14 @@ const Container = styled.div`
   margin: 8px;
   border: 1px solid lightgrey;
   border-radius: 2px;
+  width: 250px;
+  background-color: lightgrey;
+
+  vertical-align: top;
+  min-height: 600px;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.h3`
@@ -15,6 +23,7 @@ const Title = styled.h3`
 
 const TaskList = styled.div`
   padding: 8px;
+  flex-grow: 1;
 `;
 
 class Column extends Component {
@@ -30,9 +39,10 @@ class Column extends Component {
               innerRef={provided.innerRef}
               {...provided.droppableProps}
             >
-              {this.props.tasks.map((task, index) => (
-                <Task key={task.id} task={task} index={index} />
-              ))}
+              {this.props.tasks &&
+                this.props.tasks.map((task, index) => (
+                  <Task key={task.id} task={task} index={index} />
+                ))}
               {provided.placeholder}
             </TaskList>
           )}
