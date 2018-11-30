@@ -22,7 +22,39 @@
   font-size: large;
 }
 
+.m-t-2 {
+  margin-top: 2px;
+}
+
+.m-b-0 {
+  margin-bottom: 0px;
+}
+
+.m-b-2 {
+  margin-bottom: 2px;
+}
+
+.m-b-3 {
+  margin-bottom: 3px;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.m-t-100 {
+  margin-top: 100px;
+}
+
+.m-t-200 {
+  margin-top: 200px;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

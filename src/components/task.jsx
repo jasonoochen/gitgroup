@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
 
 const Container = styled.div`
-  border: 1px solid lightgrey;
-  border-radius: 2px;
+  margin-bottom: 8px;
+  word-wrap: break-word;
+`;
+/**
+ *   border: 1px solid lightgrey;
+  border-radius: 4px;
   padding: 8px;
   margin-bottom: 8px;
   background-color: white;
-`;
+ */
 
 class Task extends Component {
   state = {};
@@ -17,12 +22,21 @@ class Task extends Component {
       <Draggable draggableId={this.props.task.id} index={this.props.index}>
         {provided => (
           <Container
+            className="card"
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             ref={provided.innerRef}
             innerRef={provided.innerRef}
           >
-            {this.props.task.title}
+            <header class="card-header">
+              <p class="card-header-title">{this.props.task.title}</p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <ReactMarkdown source={this.props.task.body} />
+                {/* <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> */}
+              </div>
+            </div>
           </Container>
         )}
       </Draggable>
